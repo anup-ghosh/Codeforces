@@ -18,6 +18,7 @@ using namespace std;
 #define gcd(a, b) __gcd(a, b)
 #define pb push_back
 #define all(x) x.begin(), x.end()
+#define allr(x) x.rbegin(), x.rend()
 #define fio()                   \
   ios_base::sync_with_stdio(0); \
   cin.tie(0);                   \
@@ -31,7 +32,17 @@ using namespace std;
 
 #define yes cout << "YES\n";
 
-void solve(int tc) {}
+void solve(int tc) {
+  int n;
+  cin >> n;
+  vector<int> v(n + 1);
+  int gc = 0;
+  for (int i = 1; i <= n; i++) {
+    cin >> v[i];
+    gc = gcd(gc, abs(v[i] - i));
+  }
+  cout << gc << endl;
+}
 
 int main() {
   int t;
