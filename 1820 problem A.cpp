@@ -31,7 +31,26 @@ using namespace std;
 
 #define yes cout << "YES\n";
 
-void solve(int tc) {}
+void solve(int tc) {
+  string s;
+  cin >> s;
+  int n = s.size();
+  int ans = 0;
+  if (n == 1 && s[0] != '_') {
+    cout << 1 << endl;
+    return;
+  }
+  if (n == 1 && s[0] == '_') {
+    cout << 2 << endl;
+    return;
+  }
+  if (s[0] != '^') ans++;
+  if (s[n - 1] != '^') ans++;
+  for (int i = 0; i < n - 1; i++) {
+    if (s[i] == '_' && s[i + 1] == '_') ans++;
+  }
+  cout << ans << endl;
+}
 
 int main() {
   int t;
